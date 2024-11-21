@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-// product model and schema
-const ProductSchema = new mongoose.Schema({
-  productName: {
+// Define the addToCart schema
+const addToCartSchema = new mongoose.Schema({
+productName: {
     type: String,
     required: [true, 'Product name is required'],
     trim: true,
@@ -74,13 +74,18 @@ const ProductSchema = new mongoose.Schema({
   stock: {
     type: Number,
     default: 10
-  }
+  },
 
+  prodIncrement: {
+    type: Number,
+    default:1,
+  },
+ 
 }, {
-  timestamps: true,
+  timestamps: true, 
   versionKey: false,
 });
 
-const productModel = mongoose.model('Product', ProductSchema);
+const addToCartModel = mongoose.model('addToCart', addToCartSchema);
 
-module.exports = productModel;
+module.exports = addToCartModel;

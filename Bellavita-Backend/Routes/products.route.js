@@ -3,14 +3,11 @@ const productRouter = express.Router();
 const productModel = require('../Models/products.model');
 const authorized = require('../Middlewares/auth.middleware')
 const checkAdmin = require('../Middlewares/checkAdmin.middleware');
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 
 
 // Get all Products with optional filtering
-productRouter.get('/', authorized, async (req, res) => {
-    // const userId = req.user._id;
-    
-    // Destructuring the query parameters
+productRouter.get('/all-products', authorized, async (req, res) => {
     const {
         page = 1,
         limit = 10,
@@ -65,28 +62,19 @@ productRouter.get('/', authorized, async (req, res) => {
 
 // Add new Product
 productRouter.post('/create', [authorized, checkAdmin], async (req, res) => {
-    const userId = req.user._id
-    const { name, description, category, brand, price, imageUrl, ratings } = req.body;
-    if (!name || !description || !category || !price || !imageUrl || !ratings) {
+    if (!req.body) {
         return res.status(400).json({ message: 'All fields are required' });
     }
     try {
-        const newProduct = new productModel({
-            name,
-            description,
-            category,
-            brand,
-            price,
-            imageUrl,
-            ratings,
-            userId
-        });
+        const newProduct = new productModel(req.body);
         await newProduct.save();
         res.status(201).json({ message: `Product Created Successfully ✅` });
     } catch (error) {
-        console.log(`Error occurred while creating product: ${error}`);
-        res.status(500).json({ message: `Server error occurred during product creation ❌ ${error.message}` });
+      return res.status(500).json({ message: 'Server error', error: error.message });
     }
+
+    console.log(`Error occurred while creating product: ${error}`);
+    res.status(500).json({ message: `Server error occurred during product creation ❌ ${error.message}` });
 })
 
 
@@ -107,7 +95,7 @@ productRouter.patch('/update/:id', [authorized, checkAdmin], async (req, res) =>
 
     try {
         const product = await productModel.findById(productId);
-        if (!product) {
+        if (!product || product.length < 0) {
             return res.status(404).json({ message: `Product Not Found` });
         }
 
