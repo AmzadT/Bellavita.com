@@ -9,7 +9,7 @@ const Navbar = () => {
     const [hoverItem, setHoverItem] = useState(null); // track hover state
     const [hoverLink, setHoverLink] = useState(null); // track link hover for color change
     const [cartItemCount, setCartItemCount] = useState(1); // Cart item count
-    const imageUrl = "https://bellavitaorganic.com/cdn/shop/files/1920-720_6_89cf1745-0cdc-428f-a9bf-b9177f08ff45.webp?v=1728366422&width=1400";
+    const imageUrl = "https://bellavitaorganic.com/cdn/shop/files/1920-720_d6d8e588-ffc0-4ff3-bbb5-6f6fe3e5b345.webp?v=1732002403&width=1400";
 
 
     const handleMouseEnter = (item) => {
@@ -44,6 +44,7 @@ const Navbar = () => {
                 backgroundPosition="center"
                 backgroundSize="cover"
                 backgroundRepeat="no-repeat"
+                cursor='pointer'
                 py={4}>
 
 
