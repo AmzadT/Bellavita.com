@@ -16,12 +16,13 @@ import ShopByNotes from './Components/ShopByNotes'
 import CrazyDeals from './Components/CrazyDeals'
 import Categories from './Components/Categories'
 import Products from './Components/Products'
-
+import TitleImage from './Components/TitleImage'
 
 function App() {
 
   return (
     <Box width='100%'>
+    <TitleImage/>
       <NavSlider />
       <Routes>
         <Route path='/' element={<Navbar />} />

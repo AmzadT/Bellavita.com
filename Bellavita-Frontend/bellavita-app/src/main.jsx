@@ -5,10 +5,10 @@ import { BrowserRouter } from 'react-router-dom';  // Import BrowserRouter for r
 import { ChakraProvider } from '@chakra-ui/react'; // Import ChakraProvider
 
 createRoot(document.getElementById('root')).render(
- 
-  <ChakraProvider>   
-    <BrowserRouter>  
+
+  <BrowserRouter>
+    <ChakraProvider>
       <App />
-    </BrowserRouter>
-  </ChakraProvider>
+    </ChakraProvider>
+  </BrowserRouter>
 )
