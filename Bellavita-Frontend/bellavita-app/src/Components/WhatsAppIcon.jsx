@@ -2,7 +2,7 @@ import { Box, Image, Link } from "@chakra-ui/react";
 
 const WhatsAppIcon = () => {
     return (
-        <Link href="https://wa.me/+91-9311732440" isExternal>
+        <Link href="https://wa.me/+91-8298101008" isExternal>
             <Box
                 position="fixed"
                 bottom="50px"

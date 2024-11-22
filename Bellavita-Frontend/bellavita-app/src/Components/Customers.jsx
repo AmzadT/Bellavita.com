@@ -9,6 +9,8 @@ const Customers = () => {
                 <img
                     style={{
                         borderRadius: '50%',
+                        width: '80px',
+                        height: '80px',
                         transition: 'transform 0.4s ease-in-out',
                         cursor: 'pointer'
                     }}
@@ -20,6 +22,9 @@ const Customers = () => {
                 <img
                     style={{
                         borderRadius: '50%',
+                        width: '100px',
+                        height: '100px',
+                        marginTop: '10px',
                         transition: 'transform 0.4s ease-in-out',
                         cursor: 'pointer'
                     }}
@@ -42,6 +47,9 @@ const Customers = () => {
                 <img
                     style={{
                         borderRadius: '50%',
+                        width: '100px',
+                        height: '100px',
+                        marginTop: '10px',
                         transition: 'transform 0.4s ease-in-out',
                         cursor: 'pointer'
                     }}
@@ -53,6 +61,8 @@ const Customers = () => {
                 <img
                     style={{
                         borderRadius: '50%',
+                        width: '80px',
+                        height: '80px',
                         transition: 'transform 0.4s ease-in-out',
                         cursor: 'pointer'
                     }}
